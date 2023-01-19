@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onDismissed: (direction) {
         print('direction: $direction');
         print('id: ${band.id!}');
+        print('prueba');
         //TODO realizar el llamado en el servidor
       },
       background: Container(
