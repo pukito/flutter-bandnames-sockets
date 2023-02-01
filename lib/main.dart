@@ -1,4 +1,6 @@
+import 'package:band_name/services/socket.service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:band_name/app_routes/app.routes.dart';
 
@@ -9,10 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      initialRoute: 'home',
-      routes: AppRoutes,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => SocketService(),
+        )
+      ],
+      child: MaterialApp(
+        title: 'Material App',
+        initialRoute: 'home',
+        routes: AppRoutes,
+      ),
     );
   }
 }
